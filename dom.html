@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+   table, tr, td {
+      border: 2px solid rgb(0, 0, 0);
+    }
+     body{
+      background-color: rgb(231, 113, 58);
+     }
+    nav{
+      background-color: rgb(255, 219, 127);
+      color: rgb(255, 98, 0);
+       font-size: 500%;
+       }
+
+   div{
+    text-align: center;
+    background-color: rgb(255, 98, 0);
+   }
+   
+    </style>
+</head>
+<body> 
+  <nav>
+    <marquee scroll amount="10" direction="left" background-color="pink"> health and glow</marquee>
+  </nav>
+  <div>
+        <button id="a1">All </button>
+        <button id="a2">skin Care</button>
+        <button id="a3">hair care</button>
+        <button id="a4">body Care</button>
+        <button id="a5">makeup</button>
+        <button id="a6">cart</button> 
+
+      
+              </div>
+        <table></table>
+
+    <script>
+
+let table=document.getElementsByTagName("table")
+    var arr=[
+    {
+        "id":1,
+    "title":"Clinique Moisture Surge 100h Auto-replenishing Hydrator (Moisturizer)",
+    "price":1950.95,
+    "description":"Rich cream-gel delivers 72-hour hydration for velvety-smooth skin. Tested in Siberia—and the results were glowing.",
+    "category":"skin care",
+    "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsqJymyvzgmTmQMPh4NkVIhknzRl8Foa13dg&usqp=CAU",
+    "rating":{
+    "rate":3.9,
+    "count":120
+    }
+    },
+    {
+    "id":2,
+    "title":"The Ordinary Soothing & Barrier Support Pink Serum with Ceramides & Vit. B12 (For Redness & Dryness) ",
+    "price":890.3,
+    "description":"A multi-active solution designed to help repair skin barrier, soothe discomfort, and reduce the look of redness.",
+    "category":"skin care",
+    "image":"https://images-static.nykaa.com/media/catalog/product/7/f/7fd30fb769915233247_1.jpg?tr=w-344,h-344,cm-pad_resize",
+    "rating":{
+    "rate":4.1,
+    "count":259
+    }
+    },
+    {
+    "id":3,
+    "title":"L'Oreal Paris Revitalift Hydrating Serum With 1.5 % Hyaluronic Acid",
+    "price":553.99,
+    "description":"A Lightweight serum with 50X smaller Micro Hyaluronic Acid intensely hydrates, smooths, and replumps skin to reduce fine lines by -60%",
+    "category":"skin care",
+    "image":"https://m.media-amazon.com/images/I/41AmYU-neoL._SX679_.jpg",
+    "rating":{
+    "rate":4.7,
+    "count":500
+    }
+    },
+    {
+    "id":4,
+    "title":"Cetaphil Gentle Skin Cleanser ",
+    "price":290.99,
+    "description":"GENTLE SKIN CLEANSER: Formulated with Micellar Technology that gently yet effectively removes dirt, makeup and impurities. PROTECTS AGAINST DRYNESS: Clinically proven to provide continuous hydration leaving the skin hydrated after cleansing",
+    "category":"skin care",
+    "image":"https://m.media-amazon.com/images/I/71t9JRry+3L._SY879_.jpg",
+    "rating":{
+    "rate":2.1,
+    "count":430
+    }
+    },
+    {
+    "id":5,
+    "title":"Lakme 9 To 5 Primer + Matte Perfect Cover Liquid Foundation",
+    "price":695,
+    "description":"Built-in primer + matte foundation with spf 20 natural, flawless finish shades that suit 100 percent Indian skin tones perfect cover, longwear formula medium to high, buildable coverageGives a smooth and even finish.",
+    "category":"makeup",
+    "image":"https://m.media-amazon.com/images/I/41vtvaVf6QL._SX679_.jpg",
+    "rating":{
+    "rate":4.6,
+    "count":400
+    }
+    },
+    {
+    "id":6,
+    "title":"Lakme 9TO5 Primer + Matte Lip Color MP8 Rosy Sunday, 3.6 g ",
+    "price":468,
+    "description":"14-hour intense matte for an unstoppable you; With 2X primer for a long-lasting, smooth matte finish.Comfortable on lips with an intense color payoff.Glides smoothly onto lips for easy and quick application.",
+    "category":"makeup",
+    "image":"https://m.media-amazon.com/images/I/41f8aojx03L._SX679_.jpg",
+    "rating":{
+    "rate":3.9,
+    "count":70
+    }
+    },
+    {
+    "id":7,
+    "title":"Lakme Eyeconic Curling Mascara  - Smudge Proof Eye Makeup, 9 ml",
+    "price":650.99,
+    "description":"Gives volume to your lashes every dayLight and easy to remove, its moisturizer keeps lashes smoothSmart curl brushghtwear mascara with D-Panthenol MoisturizerIts moisturizer keeps lashes smooth",
+    "image":"https://m.media-amazon.com/images/I/41Zt239pxFL._SX679_.jpg",
+    "rating":{
+    "rate":3,
+    "count":400
+    }
+    },
+    {
+    "id":8,
+    "title":"Lakme Rose Loose Face Powder with Sunscreen",
+    "price":350.99,
+    "description":"Loose face powder with rose fragranceContains extracts of real rosesProtects skin from harmful rays of the skinControls oil for long hours Easy application",
+    "category":"makeup",
+    "image":"https://m.media-amazon.com/images/I/5131DNtHNQL._SX679_.jpg",
+    "rating":{
+    "rate":1.9,
+    "count":100
+    }
+    },
+    {
+    "id":9,
+    "title":"Chemist At Play 1% Salicylic Acid Exfoliating Body Wash 236ml  ",
+    "price":264,
+    "description":"This body wash is vegan, cruelty-free, fragrance-free, silicones free, parabens free, gluten-free, mineral oil-free and dye-free. Our body wash is based on scientific research as we believe that people should understand the science behind what they apply to their skin and no other BS.",
+    "category":"body care",
+    "image":"https://m.media-amazon.com/images/I/51fzj8Vb4aL._SX679_.jpg",
+    "rating":{
+    "rate":3.3,
+    "count":203
+    }
+    },
+    {
+    "id":10,
+    "title":"mCaffeine Exfoliating Coffee Body Scrub",
+    "price":309,
+    "description":"REMOVES TAN & DEAD SKIN, EXFOLIATES: Treat your skin to Raw Coffee that melts on the skin to exfoliate and leave you with a refreshing feeling. The Coffee Body Scrub is great for tan removal & ingrown hair reduction. More than 97% of subjects agreed that this scrub helps in removing tan and dead skin. With an enticing Coffee aroma, a session with this Caffeinated scrub is something your skin craves after a long week. ",
+    "category":"body care",
+    "image":"https://m.media-amazon.com/images/I/61Q22VUUcML._SX679_.jpg",
+    "rating":{
+    "rate":2.9,
+    "count":470
+    }
+    },
+    {
+    "id":11,
+    "title":"SunScoop Hydrating Face & Body Fluid Sunscreen Spray",
+    "price":269,
+    "description":" Enhanced with natural extracts: Infused with Rosemary Extract for anti-inflammatory and skin calming properties & Chamomile to reduce signs of aging.",
+    "category":"body care",
+    "image":"https://m.media-amazon.com/images/I/61QILTRAjXL._SX679_.jpg",
+    "rating":{
+    "rate":4.8,
+    "count":319
+    }
+    },
+    {
+    "id":12,
+    "title":"Vaseline Derma Care Advanced Repair Body Lotion,",
+    "price":114,
+    "description":"Clinically proven to moisturize and heal* very dry skin in 5 days.Relieves even stubborn dry patchesAppropriate for very sensitive skinAppropriate for very dry skinLong lasting moisturization with non-greasy feel",
+    "category":"body care",
+    "image":"https://m.media-amazon.com/images/I/51EijMHm8PL._SX679_.jpg",
+    "rating":{
+    "rate":4.8,
+    "count":400
+    }
+    },
+    {
+    "id":13,
+    "title":"Minimalist 2% Salicylic Acid + LHA Body Wash",
+    "price":599,
+    "description":"An everyday body cleanser with a combination of 2% Salicylic acid & LHA which helps gently remove excess sebum as well cleanses & exfoliates to keep the skin healthy & even textured",
+    "category":"body care",
+    "image":"https://m.media-amazon.com/images/I/51p+f7MC8+L._SL1500_.jpg",
+    "rating":{
+    "rate":3.9,
+    "count":250
+    }
+    },
+    {
+    "id":14,
+    "title":"Plum BodyLovin' Vanilla Vibes Body Oil",
+    "price":599.99,
+    "description":"A soothing body oil that locks in moisture, deeply hydrates your skin and helps reduce skin pigmentation. The non-greasy lightweight formula leaves your skin feeling nourished and smooth Enriched with the goodness of 9 nourishing oils ",
+    "category":"body care",
+    "image":"https://m.media-amazon.com/images/I/51epMlVmSQL._SX679_.jpg",
+    "rating":{
+    "rate":2.2,
+    "count":140
+    }
+    },
+    {
+    "id":15,
+    "title":"Love Beauty & Planet Argan Oil and Lavender Shampoo",
+    "price":560.99,
+    "description":"100% ORGANIC COCONUT OIL This sulfate-free, organic Argan Oil & Lavender shampoo is also infused with 100% organic Coconut oil that is known to nourish hair deeply and add long-lasting moisture.",
+    "category":"hair care",
+    "image":"https://m.media-amazon.com/images/I/51Hh3AFFKKL._SX522_.jpg",
+    "rating":{
+    "rate":2.6,
+    "count":235
+    }
+    },
+    {
+    "id":16,
+    "title":"L'Oreal Paris Filling Night Cream",
+    "price":295.95,
+    "description":"Provides shiny hair, Offers 72 hours of intense hydration, Hair appears bouncy and more manageable, Seals hair cuticles for healthier looking hair",
+    "category":"hair care",
+    "image":"https://m.media-amazon.com/images/I/51NAWzHDISL._SX679_.jpg",
+    "rating":{
+    "rate":2.9,
+    "count":340
+    }
+    },
+    {
+    "id":17,
+    "title":"L'Oreal Paris Leave-In Conditioner",
+    "price":395.99,
+    "description":"With Keratin to calm flyaway and unmanageable hair, Vitamins B3 + B5 for deep nourishment and hydration, and Castor Oil to promote hair growth.",
+    "category":"hair care",
+    "image":"https://m.media-amazon.com/images/I/51ZCOFaCFuL._SX679_.jpg",
+    "rating":{
+    "rate":3.8,
+    "count":679
+    }
+    },
+    {
+    "id":18,
+    "title":"Minimalist Serum for Repairing Damaged Hair  ",
+    "price":650.85,
+    "description":"A new Patent Pending combination of Maleic Acid, Tranglutaminase and Amino Acids in potent concentration of 5% that repairs weak and damaged hair bonds",
+    "category":"hair care",
+    "image":"https://m.media-amazon.com/images/I/51uP8nLkG1L._SX679_.jpg",
+    "rating":{
+    "rate":4.7,
+    "count":130
+    }
+    },
+    {
+    "id":19,
+    "title":"Kama Ayurveda Bringadi Intensive Hair Treatment",
+    "price":750.95,
+    "description":"The secret to Indians lush, glossy hair  this traditional Ayurvedic Hair treatment oil recipe consists of potent herbs extracted into pure Sesame oil and Milk.",
+    "category":"hair care",
+    "image":"https://m.media-amazon.com/images/I/612s5ey5ikL._SX522_.jpg",
+    "rating":{
+    "rate":4.5,
+    "count":146
+    }
+    },
+    {
+    "id":20,
+    "title":"DANVOUY Womens T Shirt Casual Cotton Short",
+    "price":12.99,
+    "description":"95%Cotton,5%Spandex, Features: Casual, Short Sleeve, Letter Print,V-Neck,Fashion Tees, The fabric is soft and has some stretch., Occasion: Casual/Office/Beach/School/Home/Street. Season: Spring,Summer,Autumn,Winter.",
+    "category":"women's clothing",
+    "image":"https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
+    "rating":{
+    "rate":3.6,
+    "count":145
+    }
+    }
+    
+  ]
+  
+  let btn1=document.getElementById("a1")
+  btn1.style.backgroundColor="white"
+  btn1.addEventListener("click",()=>{
+    add()
+    display(arr)
+  })
+
+  let btn2=document.getElementById("a2")
+  btn2.style.backgroundColor="white"
+  btn2.addEventListener("click",()=>{
+     a=[];
+    for(i=0;i<arr.length;i++){
+        if(arr[i].category=="skin care"){
+            a.push(arr[i])
+        }
+    }
+    add()
+    display(a);
+  })
+
+
+  let btn3=document.getElementById("a3")
+  btn3.style.backgroundColor="white"
+  btn3.addEventListener("click",()=>{
+     b=[];
+    for(i=0;i<arr.length;i++){
+        if(arr[i].category=="hair care"){
+        b.push(arr[i])
+    }
+}
+  add()
+  display(b)
+  })
+
+ 
+  let btn4=document.getElementById("a4")
+  btn4.style.backgroundColor="white"
+  btn4.addEventListener("click",()=>{
+     c=[];
+    for(i=0;i<arr.length;i++){
+        if(arr[i].category=="body care"){
+        c.push(arr[i])
+        }
+    }
+    add()
+    display(c);
+  })
+
+  let btn5=document.getElementById("a5")
+  btn5.style.backgroundColor="white"
+  btn5.addEventListener("click",()=>{
+    d=[];
+    for(i=0;i<arr.length;i++){
+        if(arr[i].category=="makeup"){
+            d.push(arr[i])
+        }
+    }
+add()
+display(d);
+  })
+  let btn6=document.getElementById("a6")
+  btn6.style.backgroundColor="white"
+  btn6.addEventListener("click",()=>{
+window.location.assign("./dummy2.html")
+  })
+
+
+
+
+
+
+
+
+
+function add(){
+table[0].innerText=""
+}
+let storage=[]
+
+function display(vall){
+vall.map((val,ind,arr)=>{
+let trcreate=document.createElement("tr")
+let tdcreate=document.createElement("td")
+
+tdcreate.innerText=val.id
+trcreate.appendChild(tdcreate)
+
+let tdcreate1=document.createElement("td")
+tdcreate1.innerText=val.title
+trcreate.appendChild(tdcreate1)
+
+
+let tdcreate2=document.createElement("td")
+tdcreate2.innerText=val.price
+trcreate.appendChild(tdcreate2)
+
+
+let tdcreate3=document.createElement("td")
+tdcreate3.innerText=val.description
+trcreate.appendChild(tdcreate3)
+
+
+let tdcreate4=document.createElement("td")
+tdcreate4.innerText=val.category
+trcreate.appendChild(tdcreate4)
+
+let tdcreate5=document.createElement("td")
+let imgcreate=document.createElement("img")
+imgcreate.setAttribute("src",val.image);
+imgcreate.style.width="200px"
+imgcreate.style.height="200px"
+tdcreate5.appendChild(imgcreate)
+trcreate.appendChild(tdcreate5)
+
+let tdcreate6=document.createElement("td")
+tdcreate6.innerText=val.rating.count
+trcreate.appendChild(tdcreate6)
+
+
+let tdcreate7=document.createElement("td")
+tdcreate7.innerText=val.rating.rate
+trcreate.appendChild(tdcreate7)
+
+
+let tdcreate8=document.createElement("td")
+let button1=document.createElement("button")
+button1.innerText="see more"
+button1.style.backgroundColor="pink"
+tdcreate8.appendChild(button1)
+trcreate.appendChild(tdcreate8)
+
+
+button1.addEventListener("click",()=>{
+  window.location.assign("./dummy.html")
+})
+
+button1.addEventListener("click",()=>{
+  localStorage.setItem("see",JSON.stringify(vall[ind]))
+})
+
+
+let tdcreate9=document.createElement("td")
+let button2=document.createElement("button")
+button2.innerText="Add to cart"
+button2.style.backgroundColor="pink"
+tdcreate9.appendChild(button2)
+trcreate.appendChild(tdcreate9)
+
+button2.addEventListener("click",()=>{
+
+let val=JSON.parse(localStorage.getItem("cart"))
+val!=null?[]:val;
+storage.push(vall[ind])
+
+localStorage.setItem("cart",JSON.stringify(storage))
+
+})
+
+
+
+table[0].appendChild(trcreate)
+})
+}
+
+
+ </script>
+</body>
+</html>

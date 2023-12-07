@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        div{
+            border: 2px solid black;
+            background-color: aqua;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <button id="a1">back</button>
+    <div></div>
+</body>
+<script>
+
+    let btn=document.getElementById("a1")
+    btn.addEventListener("click",()=>{
+     window.history.back()
+    })
+
+let vallocal=JSON.parse(localStorage.getItem("see"))
+
+let divget=document.getElementsByTagName("div")
+
+let imgcreate=document.createElement("img")
+imgcreate.setAttribute("src",vallocal.image)
+imgcreate.style.width="100px"
+imgcreate.style.height="100px"
+divget[0].appendChild(imgcreate)
+
+let p1=document.createElement("p")
+p1.innerText=vallocal.id
+divget[0].appendChild(p1)
+
+let p2=document.createElement("p")
+p2.innerText=vallocal.title
+divget[0].appendChild(p2)
+
+let p3=document.createElement("p")
+p3.innerText=vallocal.price
+divget[0].appendChild(p3)
+
+let p4=document.createElement("p")
+p4.innerText=vallocal.id
+divget[0].appendChild(p4)
+
+let p5=document.createElement("p")
+p5.innerText=vallocal.description
+divget[0].appendChild(p5)
+
+let p6=document.createElement("p")
+p6.innerText=vallocal.category
+divget[0].appendChild(p6)
+
+let p7=document.createElement("p")
+p7.innerText=vallocal.rating.count
+divget[0].appendChild(p7)
+
+let p8=document.createElement("p")
+p1.innerText=vallocal.rating.rate
+divget[0].appendChild(p1)
+
+</script>
+</html>

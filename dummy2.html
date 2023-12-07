@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+    background-image: url("https://images.unsplash.com/photo-1554189097-ffe88e998a2b?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8fA%3D%3D");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    }
+    /* div{
+        background-color: black;
+    } */
+    /* .name{
+        width: 400px;
+        height: 400px;
+    } */
+    img{
+        width: 200px;
+    }
+</style>
+</head>
+<body>
+    
+    <button id="a1">back</button>
+    <button id="a2">clear</button>
+
+    <div></div>
+</body>
+<script>
+    let btn=document.getElementById("a1")
+    btn.addEventListener("click",()=>{
+     window.history.back()
+    })
+
+   let btn2=document.getElementById("a2")
+   btn2.addEventListener("click",()=>{
+   localStorage.removeItem("cart");
+   document.querySelector("div").innerHTML = "";
+   })
+
+    let value=JSON.parse(localStorage.getItem("cart"))
+ 
+    value==null?value:[];
+console.log(value);
+let div=document.getElementsByTagName("div")
+value.map((val,ind)=>{
+
+let div1=document.createElement("div")
+div1.innerHTML=`
+<img src="${val.image}">
+<p>="${val.id}"
+<p>${val.title}</p>
+<p>${val.price}</p>
+<p>${val.description}</p>
+<p>${val.category}</p>
+<p>${val.rating.rate}</p>
+<p>${val.rating.count}</p>
+<button id= "a7">BUYNOW</button>
+`
+div[0].appendChild(div1)
+})
+let but=document.getElementById("a7")
+but.addEventListener("click",()=>{
+    window.location.assign("./dummy3.html")
+})
+</script>
+</html>

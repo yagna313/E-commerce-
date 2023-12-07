@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* (Same as before) */
+    </style>
+</head>
+<body>
+
+    <h1>Login</h1>
+    <label for="name">Resto-Bar Name:</label>
+    <input type="text" id="name" placeholder="Enter Resto-Bar Name">
+
+    <label for="location">Resto-Bar Location:</label>
+    <input type="text" id="location" placeholder="Enter Resto-Bar Location">
+
+    <div class="radio-group">
+        <label for="charge-yes">Yes</label>
+        <input type="radio" id="charge-yes" class="radio-button" name="charge-customers" value="true" onclick="toggleFields()">
+        <label for="charge-no">No</label>
+        <input type="radio" id="charge-no" class="radio-button" name="charge-customers" value="false" onclick="toggleFields()">
+    </div>
+
+    <label for="custom-amount">Custom Song Request Amount:</label>
+    <input type="number" id="custom-amount" placeholder="Enter Custom Amount" min="99" disabled>
+
+    <label for="regular-amount-1">Regular Song Request Amount (High):</label>
+    <input type="number" id="regular-amount-1" placeholder="Enter Amount" min="79" disabled>
+    
+    <label for="regular-amount-2">Regular Song Request Amount:</label>
+    <input type="number" id="regular-amount-2" placeholder="Enter Amount" min="59" disabled>
+
+    <label for="regular-amount-3">Regular Song Request Amount:</label>
+    <input type="number" id="regular-amount-3" placeholder="Enter Amount" min="39" disabled>
+
+    <label for="regular-amount-4">Regular Song Request Amount (Low):</label>
+    <input type="number" id="regular-amount-4" placeholder="Enter Amount" min="19" disabled>
+
+    <button id="save-button" onclick="saveData()">Save</button>
+
+    <div id="graph">
+        <div class="bar" id="custom-bar" style="width: 50%;"></div>
+        <div class="bar" id="high-bar" style="width: 0%;"></div>
+        <div class="bar" id="medium-bar" style="width: 0%;"></div>
+        <div class="bar" id="low-bar" style="width: 0%;"></div>
+    </div>
+
+    <script>
+        function toggleFields() {
+            const chargeYes = document.getElementById('charge-yes');
+            const customAmount = document.getElementById('custom-amount');
+            const regularAmounts = document.querySelectorAll('[id^="regular-amount"]');
+
+            customAmount.disabled = !chargeYes.checked;
+            regularAmounts.forEach(amount => amount.disabled = !chargeYes.checked);
+        }
+
+        function saveData() {
+            const chargeCustomers = document.querySelector('input[name="charge-customers"]:checked').value;
+            const customAmount = document.getElementById('custom-amount').value;
+            const regularAmounts = Array.from(document.querySelectorAll('[id^="regular-amount"]')).map(input => input.value);
+
+            // Add logic to save data to your backend or perform necessary actions
+
+            // Update the graph
+            const customBar = document.getElementById('custom-bar');
+            const highBar = document.getElementById('high-bar');
+            const mediumBar = document.getElementById('medium-bar');
+            const lowBar = document.getElementById('low-bar');
+
+            customBar.style.width = chargeCustomers === 'true' ? `${(customAmount / 100)}%` : '0%';
+            highBar.style.width = `${(regularAmounts[0] / 100)}%`;
+            mediumBar.style.width = `${(regularAmounts[1] / 100)}%`;
+            lowBar.style.width = `${(regularAmounts[3] / 100)}%`;
+
+            // Show/hide the graph based on point 3 (Yes/No)
+            const graph = document.getElementById('graph');
+            graph.style.display = chargeCustomers === 'true' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
